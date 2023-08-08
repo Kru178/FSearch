@@ -1,14 +1,13 @@
 //
-//  FSearchTests.swift
+//  111.swift
 //  FSearchTests
 //
-//  Created by Sergei Krupenikov on 03.08.2023.
+//  Created by Sergei Krupenikov on 08.08.2023.
 //
 
 import XCTest
-@testable import FSearch
 
-final class FSearchTests: XCTestCase {
+final class _11: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
