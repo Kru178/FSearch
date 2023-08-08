@@ -12,8 +12,25 @@ protocol PhotoNetworkServiceProtocol {
 }
 
 // MARK: - NetworkService
-final class NetworkService {
-    private let baseUrl = Constants.URLs.NetworkService.baseUrl
+final class NetworkService {    
+    private func prepareUrl(for keyword: String, page: Int) -> URL? {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.flickr.com"
+        components.path = "/services/rest"
+        components.queryItems = [
+            URLQueryItem(name: "method", value: "flickr.photos.search"),
+            URLQueryItem(name: "api_key", value: "6af377dc54798281790fc638f6e4da5e"),
+            URLQueryItem(name: "format", value: "json"),
+            URLQueryItem(name: "nojsoncallback", value: "1"),
+            URLQueryItem(name: "text", value: keyword),
+            URLQueryItem(name: "per_page", value: "10"),
+            URLQueryItem(name: "page", value: "\(page)")
+        ]
+        
+        let url = components.url
+        return url
+    }
     
     init() {}
 }
@@ -22,9 +39,8 @@ final class NetworkService {
 extension NetworkService: PhotoNetworkServiceProtocol {
     func getSearchResult(for keyword: String, page: Int, completed: @escaping (Result<[Photo], FSError>) -> Void) {
         let requestPhrase = keyword.replaceWhitespacesWithUnderscores()
-        let endpoint = baseUrl + "\(requestPhrase)&per_page=20&page=\(page)"
         
-        guard let url = URL(string: endpoint) else {
+        guard let url = prepareUrl(for: requestPhrase, page: page) else {
             completed(.failure(.badRequest))
             return
         }

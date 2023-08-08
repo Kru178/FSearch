@@ -14,9 +14,12 @@ enum ImageSize: String {
 
 // MARK: - ImageLoader
 final class ImageLoader {
+    private enum BaseURL {
+        static let baseUrl = "https://live.staticflickr.com/"
+    }
     static let shared = ImageLoader()
     private let cache = NSCache<NSString, UIImage>()
-    private let baseUrl = Constants.URLs.ImageLoader.baseUrl
+    private let baseUrl = BaseURL.baseUrl
     private let placeholder = Constants.Images.placeholder
 }
 

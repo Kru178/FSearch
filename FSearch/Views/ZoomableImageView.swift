@@ -7,7 +7,7 @@
 
 import UIKit
 // MARK: - ZoomableImageView
-class ZoomableImageView: UIScrollView {
+final class ZoomableImageView: UIScrollView {
     private let imageView = UIImageView()
 
     override init(frame: CGRect) {

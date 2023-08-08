@@ -25,6 +25,7 @@ final class ImageCell: UICollectionViewCell {
     }
     
     private func configure() {
+        backgroundColor = .systemBackground
         addSubviews(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit

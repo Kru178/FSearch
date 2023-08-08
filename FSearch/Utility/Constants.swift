@@ -55,13 +55,4 @@ enum Constants {
     enum SearchTextField {
         static let placeholder = "Enter a keyword"
     }
-    
-    enum URLs {
-        enum NetworkService {
-            static let baseUrl = "https://api.flickr.com/services/rest/?%20method=flickr.photos.search&api_key=6af377dc54798281790fc638f6e4da5e&format=json&nojsoncallback=1&text="
-        }
-        enum ImageLoader {
-            static let baseUrl = "https://live.staticflickr.com/"
-        }
-    }
 }

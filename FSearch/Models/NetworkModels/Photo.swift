@@ -12,7 +12,7 @@ struct Photo: Decodable, Hashable {
     let farm: Int
     let title: String
    // the unique identifier to support the diffable datasource
-    let uuid: UUID = UUID()
+    let uuid = UUID()
     
     static func ==(lhs: Self, rhs: Self) -> Bool {
         return lhs.uuid == rhs.uuid
